@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {
+  BrowserRouter, Routes,
+  Route,
+} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ClientLogin from "./Screens/client/Login";
+import HomeScreen from "./Screens/HomeScreens";
+import ClientRegister from "./Screens/client/Register";
+import VetLogin from "./Screens/veterinario/Login";
+import VetRegister from "./Screens/veterinario/Register";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeScreen />} exact />
+        <Route path="/cl-login" element={<ClientLogin />}/>
+        <Route path="/cl-register" element={<ClientRegister />}/>
+        <Route path="/vet-login" element={<VetLogin />}/>
+        <Route path="/vet-register" element={<VetRegister />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
